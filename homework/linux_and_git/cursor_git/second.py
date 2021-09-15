@@ -1,1 +1,6 @@
-Hello-hello
+<<<<<<< HEAD
+Hello
+=======
+print('Cursor')
+>>>>>>> first
+
