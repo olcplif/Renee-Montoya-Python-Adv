@@ -4,6 +4,9 @@ from models.employee import Employee
 
 class Menu:
 
+    def check_enter_data(self):
+        pass
+
     @staticmethod
     def show_menu():
         while True:
@@ -45,5 +48,6 @@ class Menu:
                 email = input("Enter email: ")
                 director_id = Plant.get_by_email(email)
                 print(f"Director ID with email <{email}>: {director_id}")
+                # print(director_id)
             else:
                 break

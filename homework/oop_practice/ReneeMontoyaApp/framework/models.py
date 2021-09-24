@@ -1,18 +1,18 @@
 import json
 from abc import ABC, abstractmethod
-# from models.employee import Employee
 
 
 class Model(ABC):
     file = 'default.json'
 
-    @abstractmethod
     def save(self):
-        pass
+        essence_in_dict_format = self._generate_dict()
+        essence = self.get_file_data(self.file)
+        essence.append(essence_in_dict_format)
+        self.save_to_file(essence)
 
-    @abstractmethod
     def _generate_dict(self):
-        pass
+        return self.__dict__
 
     @classmethod
     def get_by_id(cls, id):
@@ -34,17 +34,6 @@ class Model(ABC):
         data = json.loads(file.read())
         file.close()
         return data
-
-    @classmethod
-    def _generate_dict(cls):
-        return cls.set_dict(cls)
-
-    @classmethod
-    def save(cls):
-        essence_in_dict_format = cls._generate_dict()
-        essence = cls.get_file_data(cls.file)
-        essence.append(essence_in_dict_format)
-        cls.save_to_file(essence)
 
     def save_to_file(self, data):
         data = json.dumps(data)
