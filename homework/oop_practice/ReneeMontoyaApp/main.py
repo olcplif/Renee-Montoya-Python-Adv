@@ -14,7 +14,7 @@ if __name__ == "__main__":
     # print(Employee.get_by_id(1))
 
     menu = Menu()
-    menu.show_menu()
+    menu.menu_show()
 
     # enter_email = input()
     # print(Plant.get_by_email(enter_email))
