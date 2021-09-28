@@ -25,13 +25,22 @@ class TestEmployee(unittest.TestCase):
         self.assertEqual(self.user.pay, 27)
 
     @patch('requests.get')
-    def test_monthly_schedule(self, mocker):
+    def test_monthly_schedule_true(self, mocker):
         class MockerUrl:
             ok = True
             text = "data of September month"
 
         mocker.return_value = MockerUrl()
         self.assertEqual(self.user.monthly_schedule(9), "data of September month")
+
+    @patch('requests.get')
+    def test_monthly_schedule_false(self, mocker):
+        class MockerUrl:
+            ok = False
+            text = "data of September month"
+
+        mocker.return_value = MockerUrl()
+        self.assertEqual(self.user.monthly_schedule(9), "Bad Response!")
 
 
 if __name__ == '__main__':
