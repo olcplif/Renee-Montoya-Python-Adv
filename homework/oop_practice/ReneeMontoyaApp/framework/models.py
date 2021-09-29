@@ -9,7 +9,10 @@ class Model(ABC):
         essence_in_dict_format = self._generate_dict()
         essence = self.get_file_data(self.file)
         essence.append(essence_in_dict_format)
-        self.save_to_file(essence)
+        try:
+            element = self.get_by_id(self.id)
+        except Exception:
+            self.save_to_file(essence)
 
     def _generate_dict(self):
         return self.__dict__

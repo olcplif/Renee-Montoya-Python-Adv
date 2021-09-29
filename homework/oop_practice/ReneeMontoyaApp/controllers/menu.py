@@ -16,8 +16,11 @@ class Menu:
                   "5. Get director ID by email \n" +
                   "6. Exit \n" +
                   "*" * 35 + "\n")
-
-            menu_flag = int(input("Your choose: "))
+            try:
+                menu_flag = int(input("Your choose: "))
+            except ValueError:
+                print("Enter correct number.")
+                continue
             if menu_flag == 1:
                 self.add_plant()
             elif menu_flag == 2:
@@ -25,20 +28,23 @@ class Menu:
             elif menu_flag == 3:
                 self.get_plant_by_id()
             elif menu_flag == 4:
-                self.get_emloyee_by_id()
+                self.get_employee_by_id()
             elif menu_flag == 5:
-                self.get_emloyee_id_by_email()
-            else:
+                self.get_employee_id_by_email()
+            elif menu_flag == 6:
                 break
+            else:
+                print("Enter correct number.")
 
     @staticmethod
     def add_plant():
-        id_plant = int(input("ID: "))
-        while check_data.check_data_is_not_present(Plant, 'id', id_plant):
-            continue
-        else:
-            print("This ID is already present!")
+        flag = True
+        while flag:
             id_plant = int(input("ID: "))
+            if not check_data.check_data_is_present(Plant, 'id', id_plant):
+                flag = False
+            else:
+                print("This ID is already present!")
 
         location = input("Location: ")
 
@@ -49,11 +55,17 @@ class Menu:
             continue
         else:
             print("No employee with this ID was found! Want to use this ID?\nYes - 1 / No - 2")
-            answer = input()
-            if answer == '1':
-                director_id = director_id
-            elif answer == '2':
-                director_id = int(input("Enter NEW Director ID: "))
+            flag_answer = True
+            while flag_answer:
+                try:
+                    answer = int(input())
+                    if answer == 1:
+                        director_id = director_id
+                        flag_answer = False
+                    elif answer == 2:
+                        director_id = int(input("Enter NEW Director ID: "))
+                except ValueError:
+                    print("Enter correct answer.")
 
         plant = Plant(id_plant, location, name, director_id)
         plant.save()
@@ -75,13 +87,13 @@ class Menu:
         return plant
 
     @staticmethod
-    def get_emloyee_by_id():
+    def get_employee_by_id():
         id = int(input("ID: "))
         employee = Employee.get_by_id(id)
         print(employee)
 
     @staticmethod
-    def get_emloyee_id_by_email():
+    def get_employee_id_by_email():
         email = input("Enter email: ")
         director_id = Plant.get_by_email(email)
         print(f"Director ID with email <{email}>: {director_id}")
