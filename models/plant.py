@@ -1,4 +1,4 @@
-from framework.models import Model
+from ReneeMontoyaApp_from_fix.framework.models import Model
 from employee import Employee
 
 
