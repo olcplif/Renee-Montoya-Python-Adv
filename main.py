@@ -1,4 +1,4 @@
-from models import Plant, Employee
+from ReneeMontoyaApp_from_fix.models import Plant, Employee
 
 while True:
     print(
