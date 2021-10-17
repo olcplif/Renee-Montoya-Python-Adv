@@ -1,7 +1,7 @@
 class Profile:
     """
     Create regular class taking 8 params on init - name, last_name, phone_number, address, email, birthday, age, sex
-    Override a printable string representation of Profile class and return: list of the params mentioned above
+    Override a printable string representation of Profile class and return: list of the params mentioned above.
     """
 
     def __init__(self, name, last_name, phone_number, address, email, birthday, age, sex):

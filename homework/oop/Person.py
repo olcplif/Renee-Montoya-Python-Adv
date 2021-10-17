@@ -57,5 +57,3 @@ if __name__ == "__main__":
     except NameError:
         print("Can't print instance - it was destroy!")
         # Can't print instance - it was destroy!
-
-

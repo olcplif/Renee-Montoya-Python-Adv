@@ -118,7 +118,7 @@ class Pigeon(Animals):
 
     @staticmethod
     def fly():
-        return "I'm fly!"
+        return "I'm flying!"
 
     @staticmethod
     def incubate():

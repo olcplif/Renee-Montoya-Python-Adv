@@ -80,8 +80,6 @@ def main():
         # I'm a Centaur. My name is Titeron.
         return centaur
 
-    # name_of_centaur_list = ["Titeron", "Theopheis", "Kostebius"]
-
     centaur1 = create_centaur(name="Titeron")
     print("I belong to the Centaur class. -->", isinstance(centaur1, Centaur))
     # I belong to the Centaur class. --> True

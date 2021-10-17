@@ -1,5 +1,5 @@
 # 4.* Create an interface for the Laptop with the next methods: Screen, Keyboard, Touchpad, WebCam, Ports, Dynamics
-# and create an HPLaptop class by using your interface.
+# and create an HPLaptop class by using your interface
 
 from abc import ABC, abstractmethod
 

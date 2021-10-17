@@ -42,4 +42,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-# Instance of Screen class was destroyed
+# Instance of Screen class was destroyed.
